@@ -15,4 +15,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFluentAssertions_Analyzers Condition=" '$(PkgFluentAssertions_Analyzers)' == '' ">C:\Users\ellea\.nuget\packages\fluentassertions.analyzers\0.15.0</PkgFluentAssertions_Analyzers>
+  </PropertyGroup>
 </Project>
