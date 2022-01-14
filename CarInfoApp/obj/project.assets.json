@@ -266,7 +266,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Collections.dll": {}
         }
       },
       "System.Collections.Concurrent/4.3.0": {
@@ -4899,7 +4899,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ServiceStack.Common >= 5.13.2"
+      "ServiceStack.Common >= 5.13.2",
+      "System.Collections >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -4944,6 +4945,10 @@
           "ServiceStack.Common": {
             "target": "Package",
             "version": "[5.13.2, )"
+          },
+          "System.Collections": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [

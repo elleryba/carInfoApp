@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarInfoApp.Constants
 {
@@ -13,12 +14,12 @@ namespace CarInfoApp.Constants
         /// <summary>
         /// The Honda miles per gallon data. Item1 = MPG City Item2 = MPG Highway
         /// </summary>
-        public static (int, int) HondaMpgData = (30, 38);
+        public static Dictionary<string, int> HondaMpgData = new Dictionary<string, int>() { { "City", 30 }, { "Highway", 38 } };
 
         /// <summary>
         /// The Nissan miles per gallon data. Item1 = MPG City Item2 = MPG Highway
         /// </summary>
-        public static (int, int) NissanMpgData = (28, 39);
+        public static Dictionary<string, int> NissanMpgData = new Dictionary<string, int>() { { "City", 28 }, { "Highway", 39 } };
 
         #endregion Public Fields
     }

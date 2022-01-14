@@ -25,9 +25,9 @@ namespace CarInfoApp.Services
                 throw new ArgumentException($"Selected vehicle option [{context.SelectedVehicleOption}] not found :: {nameof(GetVehicleInfo)}");
 
             if (context.SelectedVehicleOption.Equals(VehicleOptions.Honda))
-                return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.HondaDescription, MilesPerGallonCity = VehicleMpgData.HondaMpgData.Item1, MilesPerGallonHighway = VehicleMpgData.HondaMpgData.Item2 });
+                return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.HondaDescription, MilesPerGallonCity = VehicleMpgData.HondaMpgData["City"], MilesPerGallonHighway = VehicleMpgData.HondaMpgData["Highway"] });
 
-            return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.NissanDescription, MilesPerGallonCity = VehicleMpgData.NissanMpgData.Item1, MilesPerGallonHighway = VehicleMpgData.NissanMpgData.Item2 });
+            return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.NissanDescription, MilesPerGallonCity = VehicleMpgData.NissanMpgData["City"], MilesPerGallonHighway = VehicleMpgData.NissanMpgData["Highway"] });
         }
 
         #endregion Public Methods
