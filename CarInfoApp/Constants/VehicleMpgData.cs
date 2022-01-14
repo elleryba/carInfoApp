@@ -12,14 +12,14 @@ namespace CarInfoApp.Constants
         #region Public Fields
 
         /// <summary>
-        /// The Honda miles per gallon data. Item1 = MPG City Item2 = MPG Highway
+        /// The Honda miles per gallon data.
         /// </summary>
-        public static Dictionary<string, int> HondaMpgData = new Dictionary<string, int>() { { "City", 30 }, { "Highway", 38 } };
+        public static readonly Dictionary<string, int> HondaMpgData = new() { { MpgConstants.City, 30 }, { MpgConstants.Hwy, 38 } };
 
         /// <summary>
-        /// The Nissan miles per gallon data. Item1 = MPG City Item2 = MPG Highway
+        /// The Nissan miles per gallon data.
         /// </summary>
-        public static Dictionary<string, int> NissanMpgData = new Dictionary<string, int>() { { "City", 28 }, { "Highway", 39 } };
+        public static readonly Dictionary<string, int> NissanMpgData = new() { { MpgConstants.City, 28 }, { MpgConstants.Hwy, 39 } };
 
         #endregion Public Fields
     }

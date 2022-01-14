@@ -19,15 +19,34 @@ namespace CarInfoApp.Services
         /// <inheritdoc/>
         public Task<VehicleInfoResponse> GetVehicleInfo(VehicleInfoContext context)
         {
-            if (context is null) throw new ArgumentException($"The provided context is null :: {nameof(GetVehicleInfo)}");
+            VehicleInfoResponse response = new();
+
+            if (context is null)
+            {
+                response.Messages.Add($"The provided context is null :: {nameof(GetVehicleInfo)}");
+                return Task.FromResult(response);
+            }
 
             if (!Enum.IsDefined(typeof(VehicleOptions), context.SelectedVehicleOption))
-                throw new ArgumentException($"Selected vehicle option [{context.SelectedVehicleOption}] not found :: {nameof(GetVehicleInfo)}");
+            {
+                response.Messages.Add($"Selected vehicle option [{context.SelectedVehicleOption}] not found :: {nameof(GetVehicleInfo)}");
+                return Task.FromResult(response);
+            }
 
             if (context.SelectedVehicleOption.Equals(VehicleOptions.Honda))
-                return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.HondaDescription, MilesPerGallonCity = VehicleMpgData.HondaMpgData["City"], MilesPerGallonHighway = VehicleMpgData.HondaMpgData["Highway"] });
+            {
+                response.Description = VehicleDescriptions.HondaDescription;
+                response.MilesPerGallonCity = VehicleMpgData.HondaMpgData[MpgConstants.City];
+                response.MilesPerGallonHighway = VehicleMpgData.HondaMpgData[MpgConstants.Hwy];
 
-            return Task.FromResult(new VehicleInfoResponse() { Description = VehicleDescriptions.NissanDescription, MilesPerGallonCity = VehicleMpgData.NissanMpgData["City"], MilesPerGallonHighway = VehicleMpgData.NissanMpgData["Highway"] });
+                return Task.FromResult(response);
+            }
+
+            response.Description = VehicleDescriptions.NissanDescription;
+            response.MilesPerGallonCity = VehicleMpgData.NissanMpgData[MpgConstants.City];
+            response.MilesPerGallonHighway = VehicleMpgData.NissanMpgData[MpgConstants.Hwy];
+
+            return Task.FromResult(response);
         }
 
         #endregion Public Methods

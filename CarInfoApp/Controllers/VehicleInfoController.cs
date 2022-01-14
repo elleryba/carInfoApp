@@ -46,7 +46,7 @@ namespace CarInfoApp.Controllers
             if (vehicleOptionId < 0 || !Enum.IsDefined(typeof(VehicleOptions), vehicleOptionId))
                 return BadRequest($"There is not currently data available for vehicle [{vehicleOptionId}].");
 
-            var context = new VehicleInfoContext() { SelectedVehicleOption = (VehicleOptions)vehicleOptionId };
+            VehicleInfoContext context = new() { SelectedVehicleOption = (VehicleOptions)vehicleOptionId };
 
             var result = await _service.GetVehicleInfo(context);
 

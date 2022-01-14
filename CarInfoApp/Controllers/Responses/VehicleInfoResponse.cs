@@ -1,4 +1,6 @@
 ﻿using CarInfoApp.Models;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace CarInfoApp.Controllers.Responses
@@ -20,6 +22,14 @@ namespace CarInfoApp.Controllers.Responses
 
         /// <inheritdoc/>
         public int MilesPerGallonHighway { get; set; }
+
+        /// <summary>
+        /// Gets or sets the messages.
+        /// </summary>
+        /// <value>
+        /// The messages.
+        /// </value>
+        public ICollection<string> Messages = new List<string>();
 
         #endregion Public Properties
     }
