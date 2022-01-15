@@ -1,3 +1,4 @@
+using CarInfoApp.Data.Configs;
 using CarInfoApp.Models;
 using CarInfoApp.Services;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,8 @@ namespace CarInfoApp
         {
             services.AddControllersWithViews();
             services.AddScoped<IVehicleInfoService, VehicleInfoService>();
+            services.AddDbContext<VehicleDataConfiguration>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("VehicleData")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

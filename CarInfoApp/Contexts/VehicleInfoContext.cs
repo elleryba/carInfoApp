@@ -8,14 +8,21 @@ namespace CarInfoApp.Contexts
     /// </summary>
     [ExcludeFromCodeCoverage]
     public class VehicleInfoContext
+        : IVehicleInformation
     {
         #region Public Properties
 
-        /// <summary>
-        /// Gets or sets the selected vehicle option.
-        /// </summary>
-        /// <value>The selected vehicle option.</value>
-        public VehicleOptions SelectedVehicleOption { get; set; }
+        /// <ineritdoc/>
+        public string Description { get; set; }
+
+        /// <ineritdoc/>
+        public string Make { get; set; }
+
+        /// <ineritdoc/>
+        public string Model { get; set; }
+
+        /// <ineritdoc/>
+        public int VehicleId { get; set; }
 
         #endregion Public Properties
     }

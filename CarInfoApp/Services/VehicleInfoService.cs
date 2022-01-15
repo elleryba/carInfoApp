@@ -1,8 +1,8 @@
-﻿using CarInfoApp.Constants;
-using CarInfoApp.Contexts;
+﻿using CarInfoApp.Contexts;
 using CarInfoApp.Controllers.Responses;
+using CarInfoApp.Data.Contexts;
+using CarInfoApp.Data.Models;
 using CarInfoApp.Models;
-using System;
 using System.Threading.Tasks;
 
 namespace CarInfoApp.Services
@@ -27,24 +27,28 @@ namespace CarInfoApp.Services
                 return Task.FromResult(response);
             }
 
-            if (!Enum.IsDefined(typeof(VehicleOptions), context.SelectedVehicleOption))
+            if (context.VehicleId < 0)
             {
-                response.Messages.Add($"Selected vehicle option [{context.SelectedVehicleOption}] not found :: {nameof(GetVehicleInfo)}");
+                response.Messages.Add($"Vehicle identifier [{context.VehicleId}] is not valid :: {nameof(GetVehicleInfo)}");
                 return Task.FromResult(response);
             }
 
-            if (context.SelectedVehicleOption.Equals(VehicleOptions.Honda))
+            using (VehicleDataContext dbContext = new())
             {
-                response.Description = VehicleDescriptions.HondaDescription;
-                response.MilesPerGallonCity = VehicleMpgData.HondaMpgData[MpgConstants.City];
-                response.MilesPerGallonHighway = VehicleMpgData.HondaMpgData[MpgConstants.Hwy];
+                var query = from v in dbContext.Vehicles
+                            where v.VehicleId == context.VehicleId
+                            select v;
 
-                return Task.FromResult(response);
+                var vehicle = query.FirstOrDefault<Vehicle>();
+
+                context.Description = vehicle.Description;
+                context.Make = vehicle.Make;
+                context.Model = vehicle.Model;
             }
 
-            response.Description = VehicleDescriptions.NissanDescription;
-            response.MilesPerGallonCity = VehicleMpgData.NissanMpgData[MpgConstants.City];
-            response.MilesPerGallonHighway = VehicleMpgData.NissanMpgData[MpgConstants.Hwy];
+            response.Description = context.Description;
+            response.Make = context.Make;
+            response.Model = context.Model;
 
             return Task.FromResult(response);
         }

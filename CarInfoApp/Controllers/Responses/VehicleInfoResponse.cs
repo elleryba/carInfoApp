@@ -1,5 +1,4 @@
 ﻿using CarInfoApp.Models;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
@@ -14,22 +13,23 @@ namespace CarInfoApp.Controllers.Responses
     {
         #region Public Properties
 
-        /// <inheritdoc/>
-        public string Description { get; set; }
-
-        /// <inheritdoc/>
-        public int MilesPerGallonCity { get; set; }
-
-        /// <inheritdoc/>
-        public int MilesPerGallonHighway { get; set; }
-
         /// <summary>
         /// Gets or sets the messages.
         /// </summary>
-        /// <value>
-        /// The messages.
-        /// </value>
+        /// <value>The messages.</value>
         public ICollection<string> Messages = new List<string>();
+
+        /// <ineritdoc/>
+        public string Description { get; set; }
+
+        /// <ineritdoc/>
+        public string Make { get; set; }
+
+        /// <ineritdoc/>
+        public string Model { get; set; }
+
+        /// <ineritdoc/>
+        public int VehicleId { get; set; }
 
         #endregion Public Properties
     }

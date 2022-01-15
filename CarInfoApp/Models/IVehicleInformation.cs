@@ -14,16 +14,22 @@
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the miles per gallon city.
+        /// Gets or sets the make.
         /// </summary>
-        /// <value>The miles per gallon city.</value>
-        public int MilesPerGallonCity { get; set; }
+        /// <value>The make.</value>
+        public string Make { get; set; }
 
         /// <summary>
-        /// Gets or sets the miles per gallon highway.
+        /// Gets or sets the model.
         /// </summary>
-        /// <value>The miles per gallon highway.</value>
-        public int MilesPerGallonHighway { get; set; }
+        /// <value>The model.</value>
+        public string Model { get; set; }
+
+        /// <summary>
+        /// Gets or sets the vehicle identifier.
+        /// </summary>
+        /// <value>The vehicle identifier.</value>
+        public int VehicleId { get; set; }
 
         #endregion Public Properties
     }

@@ -2,7 +2,6 @@
 using CarInfoApp.Controllers.Responses;
 using CarInfoApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace CarInfoApp.Controllers
@@ -37,16 +36,16 @@ namespace CarInfoApp.Controllers
         /// <summary>
         /// Gets the vehicle information.
         /// </summary>
-        /// <param name="vehicleOptionId"></param>
+        /// <param name="vehicleId"></param>
         /// <returns></returns>
-        [Route("{vehicleOptionId}/info")]
+        [Route("{vehicleId}/info")]
         [HttpGet]
-        public async Task<ActionResult<VehicleInfoResponse>> GetVehicleInfo([FromRoute] int vehicleOptionId)
+        public async Task<ActionResult<VehicleInfoResponse>> GetVehicleInfo([FromRoute] int vehicleId)
         {
-            if (vehicleOptionId < 0 || !Enum.IsDefined(typeof(VehicleOptions), vehicleOptionId))
-                return BadRequest($"There is not currently data available for vehicle [{vehicleOptionId}].");
+            if (vehicleId < 0)
+                return BadRequest($"Provided vehicle identifier [{vehicleId}] is not valid.");
 
-            VehicleInfoContext context = new() { SelectedVehicleOption = (VehicleOptions)vehicleOptionId };
+            VehicleInfoContext context = new() { VehicleId = vehicleId };
 
             var result = await _service.GetVehicleInfo(context);
 
