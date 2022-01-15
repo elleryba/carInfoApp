@@ -1,6 +1,4 @@
-﻿using CarInfoApp.Constants;
-using CarInfoApp.Contexts;
-using CarInfoApp.Models;
+﻿using CarInfoApp.Contexts;
 using CarInfoApp.Services;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +17,7 @@ namespace CarInfoApp.Tests
         [TestInitialize]
         public void Setup()
         {
-            _context = new VehicleInfoContext() { SelectedVehicleOption = VehicleOptions.Honda };
+            _context = new VehicleInfoContext() { VehicleId = 1 };
         }
 
         [TestMethod]
@@ -45,7 +43,7 @@ namespace CarInfoApp.Tests
         {
             // Arrange
             _sut = new VehicleInfoService();
-            _context.SelectedVehicleOption = (VehicleOptions)3;
+            _context.VehicleId = -1;
 
             // Act
             var result = await _sut.GetVehicleInfo(_context);
@@ -54,46 +52,8 @@ namespace CarInfoApp.Tests
             result.Should().NotBeNull();
             result.Messages.Should().NotBeNullOrEmpty();
             result.Description.Should().BeNull();
-            result.MilesPerGallonCity.Should().Be(0);
-            result.MilesPerGallonHighway.Should().Be(0);
-        }
-
-        [TestMethod]
-        public async Task GetVehicleInfo_VehicleOption_Honda_ReturnsData()
-        {
-            // Arrange
-            _sut = new VehicleInfoService();
-            _context.SelectedVehicleOption = VehicleOptions.Honda;
-
-            // Act
-            var result = await _sut.GetVehicleInfo(_context);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Messages.Should().BeEmpty();
-            result.Description.Should().NotBeNullOrEmpty();
-            result.Description.Should().BeEquivalentTo(VehicleDescriptions.HondaDescription);
-            result.MilesPerGallonCity.Should().Be(VehicleMpgData.HondaMpgData[MpgConstants.City]);
-            result.MilesPerGallonHighway.Should().Be(VehicleMpgData.HondaMpgData[MpgConstants.Hwy]);
-        }
-
-        [TestMethod]
-        public async Task GetVehicleInfo_VehicleOption_Nissan_ReturnsData()
-        {
-            // Arrange
-            _sut = new VehicleInfoService();
-            _context.SelectedVehicleOption = VehicleOptions.Nissan;
-
-            // Act
-            var result = await _sut.GetVehicleInfo(_context);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Messages.Should().BeEmpty();
-            result.Description.Should().NotBeNullOrEmpty();
-            result.Description.Should().BeEquivalentTo(VehicleDescriptions.NissanDescription);
-            result.MilesPerGallonCity.Should().Be(VehicleMpgData.NissanMpgData[MpgConstants.City]);
-            result.MilesPerGallonHighway.Should().Be(VehicleMpgData.NissanMpgData[MpgConstants.Hwy]);
+            result.Make.Should().BeNull();
+            result.Model.Should().BeNull();
         }
     }
 }
