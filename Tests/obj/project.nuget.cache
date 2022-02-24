@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "2Q0T50pWXFzVbj6Z5G3BEXzZ7hoZikvN9e9xslzp4dyJZD+z4NlB44xKpm1QHWZF1wWrd8Ni5CPxM0vZifsfsg==",
-  "success": true,
+  "dgSpecHash": "V5G5M+YnuL3RcTo8VEm1fRKv7tqLtl05AsVvJYPJLYglAfU4JuFc+3i8Fhs7MiK5aT4VcPb5QN0IXGo8TGrNtg==",
+  "success": false,
   "projectFilePath": "C:\\Users\\ellea\\source\\repos\\CarInfoApp\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ellea\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
@@ -10,6 +10,8 @@
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ellea\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\ellea\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.1\\microsoft.entityframeworkcore.sqlserver.6.0.1.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.net.test.sdk\\16.9.4\\microsoft.net.test.sdk.16.9.4.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
@@ -114,5 +116,24 @@
     "C:\\Users\\ellea\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\ellea\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.SqlServer 6.0.1 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.SqlServer 6.0.1 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.Abstractions 6.0.1 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.Abstractions 6.0.1 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.Abstractions",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

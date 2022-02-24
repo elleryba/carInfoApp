@@ -54,6 +54,12 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Abstractions/6.0.1": {
+        "type": "package"
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/6.0.1": {
+        "type": "package"
+      },
       "Microsoft.NET.Test.Sdk/16.9.4": {
         "type": "package",
         "dependencies": {
@@ -1983,6 +1989,8 @@
           "FluentAssertions": "6.3.0",
           "FluentAssertions.Analyzers": "0.15.0",
           "MSTest.TestFramework": "2.2.8",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.1",
           "ServiceStack.Common": "5.13.2",
           "System.Collections": "4.3.0"
         },
@@ -2261,6 +2269,34 @@
         "ref/xamarinwatchos10/_._",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/6.0.1": {
+      "sha512": "JM55+h9Ln9MZAFikvmgrmDoIt4Zz9ZWZpNrmyi9QTVuJMzQQOEnJkISKp5Ebvpno6Jt00Gkrfmvu8K5mFPO+dA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.abstractions/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
+        "microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer/6.0.1": {
+      "sha512": "bXmFi9F7GHT0dMUvuT2b5Pf8TtPnU6sQxZ5pvf3UElva+cD0YqsGI5bJGTx21pcMdw3bVhqzCLrpfA/zgHFyMw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
+        "microsoft.entityframeworkcore.sqlserver.6.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
     "Microsoft.NET.Test.Sdk/16.9.4": {
@@ -7441,5 +7477,25 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.SqlServer 6.0.1 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.SqlServer 6.0.1 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.Abstractions 6.0.1 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.Abstractions 6.0.1 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.Abstractions",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
