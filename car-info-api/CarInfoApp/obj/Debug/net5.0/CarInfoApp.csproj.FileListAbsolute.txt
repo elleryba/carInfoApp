@@ -47,3 +47,4 @@ C:\Users\ellea\source\repos\CarInfoApp\CarInfoApp\obj\Debug\net5.0\CarInfoApp.dl
 C:\Users\ellea\source\repos\CarInfoApp\CarInfoApp\obj\Debug\net5.0\ref\CarInfoApp.dll
 C:\Users\ellea\source\repos\CarInfoApp\CarInfoApp\obj\Debug\net5.0\CarInfoApp.pdb
 C:\Users\ellea\source\repos\CarInfoApp\CarInfoApp\obj\Debug\net5.0\CarInfoApp.genruntimeconfig.cache
+C:\Users\ellea\source\repos\CarInfoApp\CarInfoApp\obj\Debug\net5.0\CarInfoApp.csproj.AssemblyReference.cache
